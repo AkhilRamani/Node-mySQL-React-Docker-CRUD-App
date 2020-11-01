@@ -1,0 +1,47 @@
+.lst-inpt{
+    padding-top: 5px;
+    background-color: rgba(0, 0, 0, 0.062);
+    border-radius: 4px;
+    flex-direction: column;
+
+    .inpt-div{
+        padding: 20px;
+        input{
+            height: 40px;
+            border-radius: 4px;
+            border-color: white;
+            font-size: 16px;
+        }
+    }
+
+    .ant-input-group-addon{
+        padding: 0;
+        border: 0;
+
+        button{
+            height: 40px!important;
+            border-radius: 0 4px 4px 0;
+            font-weight: 600;
+        }
+    }
+
+    .list{
+        overflow: auto;
+        padding-left: 22px;
+        padding-right: 12px;
+        padding-bottom: 20px;
+
+        li{
+            border: 0;
+            font-size: 15px;
+            font-weight: 500;
+
+            button{
+                padding: 0 8px;
+                font-weight: 500;
+                border-radius: 4px;
+                font-size: 13.5px;
+            }
+        }
+    }
+}

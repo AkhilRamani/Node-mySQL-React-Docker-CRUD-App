@@ -1,0 +1,37 @@
+version: "3.8"
+services: 
+    mysql-service:
+        build: 
+            context: ./mysql-service/
+        ports: 
+            - "6603:3306"
+        networks: 
+            - metigy-app-net
+
+    server:
+        build: 
+            context: ./server/
+        ports: 
+            - "8000:8000"
+        environment:
+            - NODE_ENV=prod
+        depends_on:
+            - mysql-service
+        command: ["./wait-for-it.sh", "mysql-service:6603", "--", "npm", "start"]
+        networks: 
+            - metigy-app-net
+        restart: on-failure
+        
+    frontend:
+        build: 
+            context: ./frontend/
+        ports:
+            - "3000:3000"
+        depends_on: 
+            - server
+        networks: 
+            - metigy-app-net
+
+networks:
+    metigy-app-net:
+        driver: bridge
